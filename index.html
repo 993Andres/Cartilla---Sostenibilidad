@@ -150,7 +150,8 @@
     </div>
 
     <script>
-        const MS_FORMS_LINK = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=cI0P_R-flUSgzHttsG_owGB7NrjgcDVBhpLHhCAD6KRUODQ5SFhYMkhYNUlPVUxONVpYVzBCUVczSy4u";
+        // Enlace de Microsoft Forms actualizado
+        const MS_FORMS_LINK = "https://forms.cloud.microsoft/r/GWXj3qM1Nx";
 
         lucide.createIcons();
 
@@ -218,6 +219,7 @@
                 return;
             }
 
+            // Copiar el texto al portapapeles para facilitar el pegado en el formulario
             const dummy = document.createElement("textarea");
             document.body.appendChild(dummy);
             dummy.value = text;
@@ -225,18 +227,14 @@
             document.execCommand("copy");
             document.body.removeChild(dummy);
 
-            showToast("¡Copiado! Abriendo Formulario...", "success");
+            showToast("¡Compromiso copiado! Abriendo formulario...", "success");
             btn.innerHTML = 'Conectando...';
 
             setTimeout(() => {
-                if(MS_FORMS_LINK.includes("https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=cI0P_R-flUSgzHttsG_owGB7NrjgcDVBhpLHhCAD6KRUODQ5SFhYMkhYNUlPVUxONVpYVzBCUVczSy4u")) {
-                    alert("Aviso: Debes configurar el enlace de MS Forms en el código.");
-                } else {
-                    window.open(MS_FORMS_LINK, '_blank');
-                }
+                window.open(MS_FORMS_LINK, '_blank');
                 btn.innerHTML = 'Registrar Compromiso <i data-lucide="check-circle-2" class="inline w-6 h-6 ml-1"></i>';
                 lucide.createIcons();
-            }, 1500);
+            }, 1200);
         }
 
         function showToast(msg, type) {
