@@ -150,7 +150,7 @@
     </div>
 
     <script>
-        const MS_FORMS_LINK = "AQUÍ_VA_TU_LINK_DE_MS_FORMS";
+        const MS_FORMS_LINK = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=cI0P_R-flUSgzHttsG_owGB7NrjgcDVBhpLHhCAD6KRUODQ5SFhYMkhYNUlPVUxONVpYVzBCUVczSy4u";
 
         lucide.createIcons();
 
@@ -229,7 +229,7 @@
             btn.innerHTML = 'Conectando...';
 
             setTimeout(() => {
-                if(MS_FORMS_LINK.includes("AQUÍ")) {
+                if(MS_FORMS_LINK.includes("https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=cI0P_R-flUSgzHttsG_owGB7NrjgcDVBhpLHhCAD6KRUODQ5SFhYMkhYNUlPVUxONVpYVzBCUVczSy4u")) {
                     alert("Aviso: Debes configurar el enlace de MS Forms en el código.");
                 } else {
                     window.open(MS_FORMS_LINK, '_blank');
