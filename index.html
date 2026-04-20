@@ -6,176 +6,209 @@
     <title>Doña Juana Sostenible - SIG Ed. 2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Quicksand', sans-serif; }
+        body { font-family: 'Quicksand', sans-serif; background-color: #f8fafc; }
         .rounded-header { border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; }
         .rounded-card { border-radius: 40px; }
         .rounded-btn { border-radius: 28px; }
-        .quiz-option.correct { background-color: #dbf09b; border-color: #dbf09b; color: #005357; }
-        .quiz-option.incorrect { background-color: #ef4444; border-color: #ef4444; color: white; }
+        .animate-bounce-slow { animation: bounce 3s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(-5%); } 50% { transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-slate-50 pb-16">
+<body class="pb-16">
 
-    <!-- HEADER -->
+    <!-- CABECERA -->
     <header class="bg-gradient-to-br from-[#005357] to-[#00a5ba] text-white pt-16 pb-24 px-8 rounded-header shadow-2xl text-center relative overflow-hidden">
         <div class="max-w-md mx-auto relative z-10">
             <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xl px-5 py-1.5 rounded-full mb-6 border border-white/30">
                 <i data-lucide="shield-check" class="w-4 h-4 text-[#dbf09b]"></i>
                 <span class="text-[10px] font-black uppercase tracking-[0.2em]">Sistema Integrado de Gestión - Ed. 2</span>
             </div>
-            <h1 class="text-5xl font-black mb-4 leading-[1.1] tracking-tight uppercase">DOÑA JUANA SOSTENIBLE</h1>
+            <h1 class="text-5xl font-black mb-4 leading-[1.1] tracking-tight uppercase italic">DOÑA JUANA SOSTENIBLE</h1>
             <p class="text-xl opacity-90 italic font-bold text-[#dbf09b]">"Nuestra huella es el futuro"</p>
         </div>
     </header>
 
     <main class="max-w-md mx-auto px-6 -mt-12 space-y-10 relative z-20">
         
-        <!-- SECCIÓN CONTEXTO -->
+        <!-- SECCIÓN INTRODUCCIÓN -->
         <section class="bg-white rounded-card p-8 shadow-xl border border-slate-100">
             <h2 class="text-2xl font-black text-[#005357] mb-4 flex items-center gap-2 italic">
-                <i data-lucide="info" class="text-[#00a5ba]"></i>¿Qué es Doña Juana Sostenible?
+                <i data-lucide="info" class="text-[#00a5ba]"></i>
+                ¿Qué es este proyecto?
             </h2>
             <p class="text-slate-600 leading-relaxed font-bold text-base">
-                Es nuestra apuesta por transformar el sitio de trabajo en un modelo de <strong>economía circular</strong> para reducir el impacto ambiental.
+                Buscamos transformar el relleno sanitario en un modelo de <strong>economía circular</strong>. Tu participación como Guardián es clave para el éxito del Sistema Integrado de Gestión (SIG).
             </p>
         </section>
 
-        <!-- RETO GUARDIÁN (QUIZ) -->
+        <!-- QUIZ DE CONOCIMIENTO -->
         <section class="bg-[#005357] text-white rounded-[45px] p-8 shadow-2xl relative overflow-hidden">
-            <div class="flex items-center gap-4 mb-10">
+            <div class="flex items-center gap-4 mb-8">
                 <div class="bg-[#dbf09b] p-3 rounded-2xl text-[#005357] shadow-lg">
-                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    <i data-lucide="brain-circuit" class="w-8 h-8"></i>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-black uppercase italic leading-none">Desafío</h2>
-                    <p class="text-[#dbf09b] font-black text-xs tracking-widest uppercase">Guardián Sostenible</p>
+                    <h2 class="text-2xl font-black uppercase italic leading-none text-white">Reto Guardián</h2>
+                    <p class="text-[#dbf09b] font-black text-[10px] tracking-widest uppercase">Prueba tus conocimientos</p>
                 </div>
             </div>
-            <div id="quiz-container" class="space-y-8"></div>
-        </section>
-
-        <!-- COMPROMISO -->
-        <section class="bg-white rounded-[50px] p-8 shadow-xl border-4 border-[#dbf09b] text-center">
-            <i data-lucide="trash-2" class="mx-auto text-[#005357] mb-4 w-10 h-10"></i>
-            <h2 class="text-3xl font-black text-[#005357] mb-2 uppercase italic">Mi Huella Hoy</h2>
-            <p class="text-sm font-bold text-slate-500 mb-8">Escribe tu compromiso y se guardará en la base de datos SIG.</p>
-            
-            <textarea id="commitment-text" placeholder="Como Guardián, me comprometo a..." class="w-full bg-slate-50 p-6 rounded-[30px] border-2 border-slate-100 focus:border-[#00a5ba] outline-none text-xl min-h-[160px] mb-6 font-bold italic shadow-inner"></textarea>
-            
-            <button id="submit-btn" onclick="submitToFirebase()" class="w-full bg-[#00a5ba] text-white font-black py-6 rounded-btn flex items-center justify-center gap-3 shadow-xl active:scale-95 text-xl uppercase italic">
-                Enviar Compromiso
-                <i data-lucide="send"></i>
-            </button>
-        </section>
-
-        <!-- VIDEOS YOUTUBE -->
-        <section class="bg-white rounded-card p-8 shadow-xl">
-            <h2 class="text-2xl font-black text-[#005357] mb-6 flex items-center gap-3 italic">
-                <i data-lucide="youtube" class="text-[#00a5ba]"></i>
-                Saber Más
-            </h2>
-            <div class="grid grid-cols-1 gap-4">
-                <a href="https://youtube.com/shorts/h4ThnZQHK_s" target="_blank" class="flex items-center justify-between p-5 bg-slate-50 rounded-[25px] border border-slate-100 shadow-sm active:bg-blue-50">
-                    <span class="font-black text-slate-800">Reciclaje Bogotá</span>
-                    <i data-lucide="external-link" class="text-[#00a5ba] w-5 h-5"></i>
-                </a>
-                <a href="https://www.youtube.com/watch?v=GZC1YMz4RSA" target="_blank" class="flex items-center justify-between p-5 bg-slate-50 rounded-[25px] border border-slate-100 shadow-sm active:bg-green-50">
-                    <span class="font-black text-slate-800">Aceites de Cocina</span>
-                    <i data-lucide="external-link" class="text-[#00a5ba] w-5 h-5"></i>
-                </a>
+            <div id="quiz-container" class="space-y-6">
+                <!-- El Quiz se carga vía JavaScript -->
             </div>
         </section>
+
+        <!-- SECCIÓN COMPROMISO (CONEXIÓN MS FORMS) -->
+        <section class="bg-white rounded-[50px] p-8 shadow-xl border-4 border-[#dbf09b] text-center">
+            <div class="mb-6">
+                <div class="bg-slate-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="edit-3" class="text-[#005357] w-10 h-10"></i>
+                </div>
+                <h2 class="text-3xl font-black text-[#005357] mb-2 uppercase italic leading-none">Mi Huella Hoy</h2>
+                <p class="text-xs font-bold text-slate-400 px-4">Tu compromiso se registrará en el formulario oficial de la organización.</p>
+            </div>
+            
+            <textarea id="commitment-text" 
+                placeholder="Ejemplo: Me comprometo a separar correctamente los residuos en mi área de trabajo..." 
+                class="w-full bg-slate-50 p-6 rounded-[30px] border-2 border-slate-100 focus:border-[#00a5ba] outline-none text-lg min-h-[160px] mb-6 font-bold italic shadow-inner transition-all"></textarea>
+            
+            <button id="submit-btn" onclick="handleFormsSubmission()" class="w-full bg-[#00a5ba] text-white font-black py-6 rounded-btn flex items-center justify-center gap-3 shadow-xl active:scale-95 text-xl uppercase italic tracking-wider transition-all hover:bg-[#008ba0]">
+                Registrar Compromiso
+                <i data-lucide="external-link"></i>
+            </button>
+            
+            <p class="text-[10px] text-slate-400 mt-6 uppercase font-black tracking-widest italic flex items-center justify-center gap-2">
+                <i data-lucide="shield" class="w-3 h-3"></i>
+                Link oficial a Microsoft Forms
+            </p>
+        </section>
+
+        <!-- ENLACES DE INTERÉS -->
+        <section class="grid grid-cols-1 gap-4">
+            <h3 class="text-[#005357] font-black uppercase text-sm tracking-widest ml-4">Recursos Adicionales</h3>
+            <a href="https://www.youtube.com/watch?v=GZC1YMz4RSA" target="_blank" class="bg-white p-5 rounded-card flex items-center justify-between shadow-md border border-slate-50">
+                <div class="flex items-center gap-4">
+                    <div class="bg-red-50 p-3 rounded-2xl text-red-500"><i data-lucide="video"></i></div>
+                    <span class="font-black text-slate-700 italic">Manejo de Aceites</span>
+                </div>
+                <i data-lucide="chevron-right" class="text-slate-300"></i>
+            </a>
+        </section>
+
     </main>
 
-    <div id="toast" class="fixed bottom-8 left-8 right-8 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 hidden">
-        <span id="toast-message" class="text-xl font-black leading-tight"></span>
+    <!-- NOTIFICACIÓN TIPO TOAST -->
+    <div id="toast" class="fixed bottom-10 left-6 right-6 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 hidden transform transition-all duration-300">
+        <div id="toast-icon-bg" class="p-2 rounded-full bg-white/20">
+            <i data-lucide="check" id="toast-icon" class="w-6 h-6 text-white"></i>
+        </div>
+        <span id="toast-message" class="text-lg font-black leading-tight text-white"></span>
     </div>
 
-    <!-- FIREBASE INTEGRATION -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-        // CONFIGURACIÓN PROPORCIONADA POR EL USUARIO
-        const firebaseConfig = {
-            apiKey: "AIzaSyBkuVZXyz0iO4lHsnYNiUJSD1V7elnvz1U",
-            authDomain: "donajuanasostenible.firebaseapp.com",
-            projectId: "donajuanasostenible",
-            storageBucket: "donajuanasostenible.firebasestorage.app",
-            messagingSenderId: "365866958549",
-            appId: "1:365866958549:web:a3e4486fb661f4f6aa6c5c",
-            measurementId: "G-QB2Y54BTBX"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        window.submitToFirebase = async () => {
-            const text = document.getElementById('commitment-text').value;
-            const btn = document.getElementById('submit-btn');
-
-            if(!text.trim()) return;
-
-            btn.disabled = true;
-            btn.innerHTML = "Guardando...";
-
-            try {
-                // Guardamos en la colección 'compromisos'
-                await addDoc(collection(db, "compromisos"), {
-                    texto: text,
-                    fecha: serverTimestamp(),
-                    agente: "Web Guardián"
-                });
-                
-                showToast("¡Enviado con éxito al SIG! 🌿", "success");
-                document.getElementById('commitment-text').value = '';
-            } catch (e) {
-                console.error("Error Firebase:", e);
-                showToast("Error de conexión. Revisa las reglas de Firestore.", "error");
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = 'Enviar Compromiso <i data-lucide="send" class="inline w-6 h-6 ml-2"></i>';
-                lucide.createIcons();
-            }
-        };
-
-        window.showToast = (msg, type) => {
-            const toast = document.getElementById('toast');
-            toast.className = `fixed bottom-8 left-8 right-8 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 ${type === 'success' ? 'bg-[#005357] text-white border-b-4 border-[#dbf09b]' : 'bg-red-600 text-white'}`;
-            document.getElementById('toast-message').innerText = msg;
-            toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 3000);
-        };
-    </script>
-
     <script>
-        const questions = [
-            { id: 'q1', q: '¿Dónde depositar Pilas y Baterías?', options: [{t: 'Contenedor Posconsumo', c: true}, {t: 'Caneca común', c: false}] },
-            { id: 'q2', q: '¿Qué hacer con el aceite usado?', options: [{t: 'Acopiar en botellas', c: true}, {t: 'Verter al sifón', c: false}] },
-            { id: 'q3', q: '¿Color de bolsa para residuos orgánicos?', options: [{t: 'Bolsa Verde', c: true}, {t: 'Bolsa Blanca', c: false}] }
+        // CONFIGURACIÓN: REEMPLAZA EL LINK ABAJO
+        const MS_FORMS_LINK = "AQUÍ_VA_TU_LINK_DE_MS_FORMS";
+
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Lógica del Quiz
+        const quizData = [
+            { q: "¿Color de bolsa para residuos orgánicos?", a: "Verde", options: ["Blanca", "Verde", "Negra"] },
+            { q: "¿Dónde depositar pilas usadas?", a: "Punto Posconsumo", options: ["Basura normal", "Punto Posconsumo"] }
         ];
 
-        function renderQuiz() {
+        function initQuiz() {
             const container = document.getElementById('quiz-container');
-            questions.forEach((q, idx) => {
-                const qDiv = document.createElement('div');
-                qDiv.className = 'bg-white/10 p-6 rounded-[35px] backdrop-blur-md border border-white/10';
-                qDiv.innerHTML = `
-                    <div class="flex gap-4 mb-4"><span class="bg-[#dbf09b] text-[#005357] w-8 h-8 rounded-full flex items-center justify-center font-black flex-shrink-0">${idx+1}</span>
-                    <p class="font-black text-lg leading-tight">${q.q}</p></div>
-                    <div class="grid gap-2">${q.options.map(opt => `<button onclick="checkAnswer(this, ${opt.c})" class="p-4 rounded-xl border border-white/20 font-bold uppercase text-sm text-left transition-all">${opt.t}</button>`).join('')}</div>`;
-                container.appendChild(qDiv);
+            quizData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-white/10 p-5 rounded-[30px] border border-white/5 backdrop-blur-sm";
+                card.innerHTML = `
+                    <p class="font-black text-lg mb-4 italic leading-tight">${item.q}</p>
+                    <div class="grid gap-2">
+                        ${item.options.map(opt => `
+                            <button onclick="checkQuiz(this, '${opt}', '${item.a}')" 
+                                class="w-full py-3 px-4 rounded-2xl border-2 border-white/10 text-xs font-black uppercase tracking-wider text-left transition-all active:scale-95">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(card);
             });
         }
 
-        window.checkAnswer = (btn, isCorrect) => {
-            btn.className = isCorrect ? 'p-4 rounded-xl font-bold uppercase text-sm text-left bg-[#dbf09b] text-[#005357]' : 'p-4 rounded-xl font-bold uppercase text-sm text-left bg-red-500 text-white';
-        };
+        function checkQuiz(btn, selected, correct) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.style.pointerEvents = "none";
+                b.style.opacity = "0.5";
+            });
 
-        renderQuiz();
-        lucide.createIcons();
+            if(selected === correct) {
+                btn.style.backgroundColor = "#dbf09b";
+                btn.style.borderColor = "#dbf09b";
+                btn.style.color = "#005357";
+                btn.style.opacity = "1";
+            } else {
+                btn.style.backgroundColor = "#ef4444";
+                btn.style.borderColor = "#ef4444";
+                btn.style.color = "white";
+                btn.style.opacity = "1";
+            }
+        }
+
+        // Lógica de Envío
+        function handleFormsSubmission() {
+            const text = document.getElementById('commitment-text').value;
+            const btn = document.getElementById('submit-btn');
+
+            if(!text.trim()) {
+                showToast("Escribe tu compromiso primero", "error");
+                return;
+            }
+
+            // 1. Intentar copiar al portapapeles (para que lo peguen en el Forms)
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            // 2. Feedback visual
+            showToast("¡Texto copiado! Abriendo formulario...", "success");
+            btn.innerHTML = 'Cargando Formulario...';
+            btn.style.opacity = "0.7";
+
+            // 3. Abrir MS Forms tras un breve delay
+            setTimeout(() => {
+                if(MS_FORMS_LINK === "https://forms.cloud.microsoft/r/GWXj3qM1Nx") {
+                    alert("Por favor, configura el enlace de MS Forms en el código (línea 105).");
+                } else {
+                    window.open(MS_FORMS_LINK, '_blank');
+                }
+                btn.innerHTML = 'Registrar Compromiso <i data-lucide="external-link" class="inline w-5 h-5 ml-1"></i>';
+                btn.style.opacity = "1";
+                lucide.createIcons();
+            }, 1800);
+        }
+
+        function showToast(msg, type) {
+            const toast = document.getElementById('toast');
+            const message = document.getElementById('toast-message');
+            
+            toast.className = `fixed bottom-10 left-6 right-6 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 ${type === 'success' ? 'bg-[#005357]' : 'bg-red-600'}`;
+            message.innerText = msg;
+            
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 4000);
+        }
+
+        initQuiz();
     </script>
 </body>
 </html>
