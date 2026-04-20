@@ -6,16 +6,12 @@
     <title>Doña Juana Sostenible - SIG Ed. 2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { font-family: 'Quicksand', sans-serif; }
         .rounded-header { border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; }
         .rounded-card { border-radius: 40px; }
         .rounded-btn { border-radius: 28px; }
-        .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
-        /* Estilos para las respuestas del quiz */
         .quiz-option.correct { background-color: #dbf09b; border-color: #dbf09b; color: #005357; }
         .quiz-option.incorrect { background-color: #ef4444; border-color: #ef4444; color: white; }
     </style>
@@ -39,27 +35,16 @@
         <!-- SECCIÓN CONTEXTO -->
         <section class="bg-white rounded-card p-8 shadow-xl border border-slate-100">
             <h2 class="text-2xl font-black text-[#005357] mb-4 flex items-center gap-2 italic">
-                <i data-lucide="info" class="text-[#00a5ba]"></i>
-                ¿Qué es Doña Juana Sostenible?
+                <i data-lucide="info" class="text-[#00a5ba]"></i>¿Qué es Doña Juana Sostenible?
             </h2>
             <p class="text-slate-600 leading-relaxed font-bold text-base">
-                Es nuestra apuesta por transformar el relleno sanitario en un modelo de <strong>economía circular</strong>. 
-                Buscamos reducir el impacto ambiental y fomentar una cultura de cuidado en nuestro sitio de trabajo.
-            </p>
-        </section>
-
-        <!-- BIENVENIDA GUARDIÁN -->
-        <section class="bg-[#dbf09b] rounded-card p-8 shadow-xl text-center">
-            <i data-lucide="shield-check" class="mx-auto text-[#005357] mb-4 w-12 h-12"></i>
-            <h2 class="text-3xl font-black text-[#005357] mb-4 leading-tight">¡Hola, Guardián!</h2>
-            <p class="text-[#005357]/80 leading-relaxed font-bold text-lg">
-                Esta guía interactiva te ayudará a ser un experto en cuidar nuestro <strong>sitio de trabajo</strong>.
+                Es nuestra apuesta por transformar el sitio de trabajo en un modelo de <strong>economía circular</strong> para reducir el impacto ambiental.
             </p>
         </section>
 
         <!-- RETO GUARDIÁN (QUIZ) -->
         <section class="bg-[#005357] text-white rounded-[45px] p-8 shadow-2xl relative overflow-hidden">
-            <div class="flex items-center gap-4 mb-10 relative z-10">
+            <div class="flex items-center gap-4 mb-10">
                 <div class="bg-[#dbf09b] p-3 rounded-2xl text-[#005357] shadow-lg">
                     <i data-lucide="shield-check" class="w-8 h-8"></i>
                 </div>
@@ -68,77 +53,108 @@
                     <p class="text-[#dbf09b] font-black text-xs tracking-widest uppercase">Guardián Sostenible</p>
                 </div>
             </div>
-
-            <div id="quiz-container" class="space-y-12 relative z-10">
-                <!-- Las preguntas se generan con JS -->
-            </div>
-        </section>
-
-        <!-- VIDEOS YOUTUBE -->
-        <section class="bg-white rounded-card p-8 shadow-xl">
-            <h2 class="text-2xl font-black text-[#005357] mb-6 flex items-center gap-3 italic">
-                <i data-lucide="youtube" class="text-[#00a5ba]"></i>
-                Saber Más (Videos)
-            </h2>
-            <div class="grid grid-cols-1 gap-4">
-                <a href="https://youtube.com/shorts/h4ThnZQHK_s?si=eaHnBDGldGZLli1t" target="_blank" class="flex items-center justify-between p-5 bg-slate-50 rounded-[25px] border border-slate-100 shadow-sm active:bg-blue-50">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-red-100 p-3 rounded-2xl text-red-600"><i data-lucide="youtube"></i></div>
-                        <div>
-                            <span class="block text-base font-black text-slate-800">Reciclaje Bogotá</span>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase">Ver Shorts en YouTube</span>
-                        </div>
-                    </div>
-                    <i data-lucide="external-link" class="text-slate-300 w-5 h-5"></i>
-                </a>
-                <a href="https://www.youtube.com/watch?v=GZC1YMz4RSA" target="_blank" class="flex items-center justify-between p-5 bg-slate-50 rounded-[25px] border border-slate-100 shadow-sm active:bg-green-50">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-green-100 p-3 rounded-2xl text-green-600"><i data-lucide="droplets"></i></div>
-                        <div>
-                            <span class="block text-base font-black text-slate-800">Aceites de Cocina</span>
-                            <span class="text-[10px] font-bold text-slate-400 uppercase">Manejo correcto</span>
-                        </div>
-                    </div>
-                    <i data-lucide="external-link" class="text-slate-300 w-5 h-5"></i>
-                </a>
-            </div>
+            <div id="quiz-container" class="space-y-8"></div>
         </section>
 
         <!-- COMPROMISO -->
         <section class="bg-white rounded-[50px] p-8 shadow-xl border-4 border-[#dbf09b] text-center">
             <i data-lucide="trash-2" class="mx-auto text-[#005357] mb-4 w-10 h-10"></i>
             <h2 class="text-3xl font-black text-[#005357] mb-2 uppercase italic">Mi Huella Hoy</h2>
-            <p class="text-sm font-bold text-slate-500 mb-8">Tu compromiso ayuda al Sistema Integrado de Gestión.</p>
+            <p class="text-sm font-bold text-slate-500 mb-8">Escribe tu compromiso y se guardará en la base de datos SIG.</p>
             
-            <textarea id="commitment-text" placeholder="Como Guardián, me comprometo a..." class="w-full bg-slate-50 p-6 rounded-[30px] border-2 border-slate-100 focus:border-[#00a5ba] focus:bg-white outline-none text-xl min-h-[160px] mb-6 font-bold italic shadow-inner transition-all"></textarea>
+            <textarea id="commitment-text" placeholder="Como Guardián, me comprometo a..." class="w-full bg-slate-50 p-6 rounded-[30px] border-2 border-slate-100 focus:border-[#00a5ba] outline-none text-xl min-h-[160px] mb-6 font-bold italic shadow-inner"></textarea>
             
-            <button onclick="submitCommitment()" class="w-full bg-[#00a5ba] text-white font-black py-6 rounded-btn flex items-center justify-center gap-3 shadow-xl active:scale-95 text-xl uppercase italic tracking-wider">
+            <button id="submit-btn" onclick="submitToFirebase()" class="w-full bg-[#00a5ba] text-white font-black py-6 rounded-btn flex items-center justify-center gap-3 shadow-xl active:scale-95 text-xl uppercase italic">
                 Enviar Compromiso
                 <i data-lucide="send"></i>
             </button>
         </section>
 
-        <footer class="text-center py-10 opacity-40">
-            <p class="text-[10px] font-black uppercase tracking-[0.4em]">CGR Doña Juana - SIG Ed. 2</p>
-        </footer>
+        <!-- VIDEOS YOUTUBE -->
+        <section class="bg-white rounded-card p-8 shadow-xl">
+            <h2 class="text-2xl font-black text-[#005357] mb-6 flex items-center gap-3 italic">
+                <i data-lucide="youtube" class="text-[#00a5ba]"></i>
+                Saber Más
+            </h2>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="https://youtube.com/shorts/h4ThnZQHK_s" target="_blank" class="flex items-center justify-between p-5 bg-slate-50 rounded-[25px] border border-slate-100 shadow-sm active:bg-blue-50">
+                    <span class="font-black text-slate-800">Reciclaje Bogotá</span>
+                    <i data-lucide="external-link" class="text-[#00a5ba] w-5 h-5"></i>
+                </a>
+                <a href="https://www.youtube.com/watch?v=GZC1YMz4RSA" target="_blank" class="flex items-center justify-between p-5 bg-slate-50 rounded-[25px] border border-slate-100 shadow-sm active:bg-green-50">
+                    <span class="font-black text-slate-800">Aceites de Cocina</span>
+                    <i data-lucide="external-link" class="text-[#00a5ba] w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
     </main>
 
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="fixed bottom-8 left-8 right-8 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 hidden animate-bounce">
-        <div id="toast-icon"></div>
+    <div id="toast" class="fixed bottom-8 left-8 right-8 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 hidden">
         <span id="toast-message" class="text-xl font-black leading-tight"></span>
     </div>
 
-    <script>
-        // Inicializar iconos
-        lucide.createIcons();
+    <!-- FIREBASE INTEGRATION -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+        // CONFIGURACIÓN PROPORCIONADA POR EL USUARIO
+        const firebaseConfig = {
+            apiKey: "AIzaSyBkuVZXyz0iO4lHsnYNiUJSD1V7elnvz1U",
+            authDomain: "donajuanasostenible.firebaseapp.com",
+            projectId: "donajuanasostenible",
+            storageBucket: "donajuanasostenible.firebasestorage.app",
+            messagingSenderId: "365866958549",
+            appId: "1:365866958549:web:a3e4486fb661f4f6aa6c5c",
+            measurementId: "G-QB2Y54BTBX"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.submitToFirebase = async () => {
+            const text = document.getElementById('commitment-text').value;
+            const btn = document.getElementById('submit-btn');
+
+            if(!text.trim()) return;
+
+            btn.disabled = true;
+            btn.innerHTML = "Guardando...";
+
+            try {
+                // Guardamos en la colección 'compromisos'
+                await addDoc(collection(db, "compromisos"), {
+                    texto: text,
+                    fecha: serverTimestamp(),
+                    agente: "Web Guardián"
+                });
+                
+                showToast("¡Enviado con éxito al SIG! 🌿", "success");
+                document.getElementById('commitment-text').value = '';
+            } catch (e) {
+                console.error("Error Firebase:", e);
+                showToast("Error de conexión. Revisa las reglas de Firestore.", "error");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Enviar Compromiso <i data-lucide="send" class="inline w-6 h-6 ml-2"></i>';
+                lucide.createIcons();
+            }
+        };
+
+        window.showToast = (msg, type) => {
+            const toast = document.getElementById('toast');
+            toast.className = `fixed bottom-8 left-8 right-8 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 ${type === 'success' ? 'bg-[#005357] text-white border-b-4 border-[#dbf09b]' : 'bg-red-600 text-white'}`;
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        };
+    </script>
+
+    <script>
         const questions = [
             { id: 'q1', q: '¿Dónde depositar Pilas y Baterías?', options: [{t: 'Contenedor Posconsumo', c: true}, {t: 'Caneca común', c: false}] },
             { id: 'q2', q: '¿Qué hacer con el aceite usado?', options: [{t: 'Acopiar en botellas', c: true}, {t: 'Verter al sifón', c: false}] },
-            { id: 'q3', q: '¿Color de bolsa para residuos orgánicos?', options: [{t: 'Bolsa Verde', c: true}, {t: 'Bolsa Blanca', c: false}] },
-            { id: 'q4', q: '¿Qué va en la Bolsa Blanca?', options: [{t: 'Plástico y Vidrio limpio', c: true}, {t: 'Papel Higiénico usado', c: false}] },
-            { id: 'q5', q: '¿Cómo gestionar escombros?', options: [{t: 'Línea de recolección especial', c: true}, {t: 'Dejarlos en el contenedor', c: false}] }
+            { id: 'q3', q: '¿Color de bolsa para residuos orgánicos?', options: [{t: 'Bolsa Verde', c: true}, {t: 'Bolsa Blanca', c: false}] }
         ];
 
         function renderQuiz() {
@@ -147,54 +163,19 @@
                 const qDiv = document.createElement('div');
                 qDiv.className = 'bg-white/10 p-6 rounded-[35px] backdrop-blur-md border border-white/10';
                 qDiv.innerHTML = `
-                    <div class="flex gap-4 mb-6">
-                        <span class="bg-[#dbf09b] text-[#005357] w-8 h-8 rounded-full flex items-center justify-center font-black flex-shrink-0">${idx+1}</span>
-                        <p class="font-black text-xl leading-tight">${q.q}</p>
-                    </div>
-                    <div class="grid grid-cols-1 gap-3">
-                        ${q.options.map(opt => `
-                            <button onclick="checkAnswer('${q.id}', ${opt.c}, this)" class="quiz-option p-5 rounded-2xl border-2 border-white/20 text-base font-black uppercase flex items-center justify-between transition-all">
-                                <span>${opt.t}</span>
-                            </button>
-                        `).join('')}
-                    </div>
-                `;
+                    <div class="flex gap-4 mb-4"><span class="bg-[#dbf09b] text-[#005357] w-8 h-8 rounded-full flex items-center justify-center font-black flex-shrink-0">${idx+1}</span>
+                    <p class="font-black text-lg leading-tight">${q.q}</p></div>
+                    <div class="grid gap-2">${q.options.map(opt => `<button onclick="checkAnswer(this, ${opt.c})" class="p-4 rounded-xl border border-white/20 font-bold uppercase text-sm text-left transition-all">${opt.t}</button>`).join('')}</div>`;
                 container.appendChild(qDiv);
             });
         }
 
-        function checkAnswer(qId, isCorrect, btn) {
-            const parent = btn.parentElement;
-            const buttons = parent.querySelectorAll('button');
-            buttons.forEach(b => b.classList.remove('correct', 'incorrect'));
-            
-            if(isCorrect) {
-                btn.classList.add('correct');
-                showToast("¡Excelente, Guardián!", "success");
-            } else {
-                btn.classList.add('incorrect');
-                showToast("Inténtalo de nuevo", "error");
-            }
-        }
-
-        function showToast(msg, type) {
-            const toast = document.getElementById('toast');
-            const message = document.getElementById('toast-message');
-            toast.className = `fixed bottom-8 left-8 right-8 p-6 rounded-[32px] shadow-2xl flex items-center gap-4 z-50 ${type === 'success' ? 'bg-[#005357] text-white border-b-4 border-[#dbf09b]' : 'bg-red-600 text-white'}`;
-            message.innerText = msg;
-            toast.classList.remove('hidden');
-            setTimeout(() => toast.classList.add('hidden'), 3000);
-        }
-
-        function submitCommitment() {
-            const text = document.getElementById('commitment-text').value;
-            if(text.trim()) {
-                showToast("¡Compromiso guardado localmente!", "success");
-                document.getElementById('commitment-text').value = '';
-            }
-        }
+        window.checkAnswer = (btn, isCorrect) => {
+            btn.className = isCorrect ? 'p-4 rounded-xl font-bold uppercase text-sm text-left bg-[#dbf09b] text-[#005357]' : 'p-4 rounded-xl font-bold uppercase text-sm text-left bg-red-500 text-white';
+        };
 
         renderQuiz();
+        lucide.createIcons();
     </script>
 </body>
 </html>
