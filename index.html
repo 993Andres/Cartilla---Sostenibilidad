@@ -14,8 +14,6 @@
         .rounded-header { border-bottom-left-radius: 4rem; border-bottom-right-radius: 4rem; }
         em, i, .italic { font-style: normal !important; }
         .quiz-option-btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     </style>
 </head>
 <body class="pb-20">
@@ -43,7 +41,7 @@
                 <h2 class="text-xl font-bold text-[#005357]">Nuestra Misión</h2>
             </div>
             <p class="text-slate-600 leading-relaxed font-medium">
-                Transformamos nuestro entorno en un modelo de <strong>economía circular</strong>. Tu compromiso es el motor que impulsa el cambio ambiental en nuestra operación.
+                Queremos transformar nuestro entorno de manera positiva <strong>con acciones de sosteniblidad y economía circular</strong>. Tu compromiso es el motor que impulsa el cambio ambiental en nuestra operación.
             </p>
         </section>
 
@@ -71,7 +69,7 @@
                     </div>
                     <div>
                         <p class="font-bold text-[#005357] text-lg">Miércoles: DÍA DE LA TIERRA</p>
-                        <p class="text-sm font-medium text-slate-500 leading-snug">Únete a la Gran Reciclatón. Limpiamos y organizamos nuestros puestos para un planeta mejor.</p>
+                        <p class="text-sm font-medium text-slate-500 leading-snug">Únete a la Gran Reciclatón. Limpiamos y organizamos nuestros puestos.</p>
                     </div>
                 </div>
                 <div class="flex items-start gap-4">
@@ -81,7 +79,7 @@
                     </div>
                     <div>
                         <p class="font-bold text-[#005357] text-lg">Jueves: IDIOMA CIRCULAR</p>
-                        <p class="text-sm font-medium text-slate-500 leading-snug">Cultura y conocimiento. Participa en el trueque de libros y comparte nuevas ideas sostenibles.</p>
+                        <p class="text-sm font-medium text-slate-500 leading-snug">Cultura y conocimiento. Participa en el trueque de libros.</p>
                     </div>
                 </div>
             </div>
@@ -101,25 +99,31 @@
             <div id="quiz-container" class="space-y-6"></div>
         </section>
 
-        <!-- SECCIÓN SABER MÁS (VIDEOS) -->
+        <!-- SECCIÓN SABER MÁS (BOTONES) -->
         <section class="bg-white rounded-xl-custom p-8 shadow-xl border border-slate-50">
             <h2 class="text-xl font-bold text-[#005357] mb-6 flex items-center gap-3">
                 <i data-lucide="play-circle" class="text-[#00a5ba] w-6 h-6"></i>
                 Saber Más
             </h2>
-            <div class="space-y-8">
-                <div>
-                    <p class="font-bold text-slate-700 mb-3 text-sm uppercase">¿Qué es la Economía Circular?</p>
-                    <div class="video-container shadow-lg">
-                        <iframe src="https://www.youtube.com/embed/Lc4-EvXwBb8" title="Economía Circular" allowfullscreen></iframe>
+            <div class="grid gap-4">
+                <a href="https://www.youtube.com/watch?v=Lc4-EvXwBb8" target="_blank" class="flex items-center justify-between p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 transition-colors group">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-red-100 p-2 rounded-lg text-red-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-bold text-slate-700 text-sm uppercase">Economía Circular</span>
                     </div>
-                </div>
-                <div>
-                    <p class="font-bold text-slate-700 mb-3 text-sm uppercase">Importancia del Reciclaje</p>
-                    <div class="video-container shadow-lg">
-                        <iframe src="https://www.youtube.com/embed/yiw6_JakZdc" title="Importancia Reciclaje" allowfullscreen></iframe>
+                    <i data-lucide="chevron-right" class="text-slate-400 w-5 h-5"></i>
+                </a>
+                <a href="https://www.youtube.com/watch?v=yiw6_JakZdc" target="_blank" class="flex items-center justify-between p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-slate-100 transition-colors group">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-red-100 p-2 rounded-lg text-red-600 group-hover:scale-110 transition-transform">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-bold text-slate-700 text-sm uppercase">Importancia del Reciclaje</span>
                     </div>
-                </div>
+                    <i data-lucide="chevron-right" class="text-slate-400 w-5 h-5"></i>
+                </a>
             </div>
         </section>
 
@@ -149,16 +153,14 @@
     </div>
 
     <script>
-        // Enlace de Microsoft Forms configurado
         const MS_FORMS_LINK = "https://forms.cloud.microsoft/r/GWXj3qM1Nx";
 
         lucide.createIcons();
 
+        // 3 Preguntas más relevantes
         const quizData = [
             { q: "¿En qué color de bolsa van los restos de comida?", a: "Verde", options: ["Blanca", "Verde", "Negra"] },
             { q: "¿Qué hacemos con las pilas agotadas?", a: "Punto Posconsumo", options: ["Basura común", "Punto Posconsumo"] },
-            { q: "¿Cómo se entrega el aceite de cocina?", a: "En botella plástica", options: ["Por el sifón", "En botella plástica"] },
-            { q: "¿El cartón mojado se puede reciclar?", a: "No", options: ["Sí", "No"] },
             { q: "¿Qué residuo va en la bolsa blanca?", a: "Vidrio limpio", options: ["Vidrio limpio", "Papel higiénico"] }
         ];
 
@@ -200,10 +202,8 @@
 
         function handleFormsSubmission() {
             const btn = document.getElementById('submit-btn');
-
             showToast("Redirigiendo al formulario oficial...", "success");
             btn.innerHTML = 'Conectando...';
-
             setTimeout(() => {
                 window.open(MS_FORMS_LINK, '_blank');
                 btn.innerHTML = 'Registrar Compromiso <i data-lucide="external-link" class="inline w-6 h-6 ml-1"></i>';
